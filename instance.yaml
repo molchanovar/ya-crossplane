@@ -1,0 +1,19 @@
+apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
+kind: Instance
+metadata:
+  name: test-crossplane-vm
+spec:
+  forProvider:
+    name: test-crossplane-vm
+    platformId: standard-v1
+    zone: ru-central1-a
+    resources:
+      - cores: 2
+        memory: 4
+    bootDisk:
+      - initializeParams:
+          - imageId: fd86cpunl4kkspv0u25a
+    networkInterface:
+      - subnetIdRef: 
+          name: test-crossplane-subnet-a
+    folderId: <your-cloud-folder>
